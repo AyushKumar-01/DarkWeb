@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Otp-submit</title>
+    <style>
+        .container2 {
+            position: absolute;
+            left: 40%;
+            top: 20%;
+            border: 2px solid rgb(16, 255, 16);
+            padding: 20px;
+            background-color: rgb(32, 32, 32);
+            text-decoration-color: rgb(16, 255, 16) ;
+        }
+        .input{
+            width: 200px;
+            height: 40px;
+            font-size: 1.5rem;
+            margin: 8px;
+        }
+        #btn {
+          padding: 4px;
+          margin: 10px;
+          width: 207px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container2">
+        <h2 style="color: aliceblue;">OTP:</h2>
+        <input id="otp" class="input" type="text/number" style="display: block;">
+  
+        <button id="btn" style="display: block;" onclick="sendOtp()">Generate OTP</button>
+  
+        <button id="btn" style="display: block;" onclick="otpLogIn()">LogIn using OTP</button>
+    </div>
+
+    <script>
+        var generatedOtp = parseInt(Math.random() * (9999 - 1000) + 1000);
+
+        function sendOtp(){
+            alert(`${generatedOtp} is your otp`);
+        }
+        function otpLogIn(){
+            var data = parseInt(document.getElementById('otp').value);
+            console.log(`generated otp for comparison: ${generatedOtp}`);
+            if(data === generatedOtp){
+                window.location.assign('directing.html');
+            }
+            else{
+                alert("OTP not working..!!");
+            }
+        };
+    </script>
+</body>
+</html>
